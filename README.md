@@ -22,7 +22,7 @@ java -cp src main
 ## Controles
 - Joueur 1 : Z / S
 - Joueur 2 : ↑ / ↓
-Fermer la fenètre pour quitter le jeu
+- Fermer la fenètre pour quitter le jeu
 
 ## Auteur
 Corbi
