@@ -9,13 +9,13 @@ git clone https://github.com/C0rbi/Java-PONG
 ```
 ### Avec IDE
 Ouvre le projet dans ton IDE
-et exécute directement la classe **`main.java`**
+et exécute directement la classe **`Main.java`**
 
 ### Sans IDE
 ``` bash
 cd Java-PONG
 javac src/*.java
-java -cp src main
+java -cp src Main
 ```
 
 
