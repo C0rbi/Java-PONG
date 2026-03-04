@@ -1,7 +1,6 @@
 package entity;
 
 import main.GamePanel;
-
 import java.awt.*;
 
 public class Ball extends Entity{
@@ -13,10 +12,6 @@ public class Ball extends Entity{
     // Dimensions de la ball
     int ballWidth = 20;
     int ballHeight = 20;
-
-    // Vecteur de déplacement
-    int velocityX = 5;  // Vitesse horizontale
-    int velocityY = 3;  // Vitesse verticale
 
     public Ball(GamePanel gp, Player playerR, Player playerL) {
         this.gp = gp;
@@ -71,18 +66,14 @@ public class Ball extends Entity{
 
             // Inverse la direction horizontale
             velocityX = -velocityX;
+            velocityY += player.velocityY / 2;
 
-            // BONUS : Calcule l'angle selon où ça tape sur la raquette
-            int paddleCenter = player.y + player.playerHeight / 2;
-            int ballCenter = y + ballHeight / 2;
-            int hitOffset = ballCenter - paddleCenter;
+            // Vas dans la direction d'où aller le joueur
 
-            // Plus c'est loin du centre, plus l'angle est prononcé
-            velocityY += hitOffset / 15;
 
-            // Limite la vitesse verticale pour éviter que ça parte en vrille
-            if (velocityY > 8) velocityY = 8;
-            if (velocityY < -8) velocityY = -8;
+            // Speed up la ball
+            if (velocityX > 0) {velocityX += 1;}
+            if (velocityX < 0) {velocityX -= 1;}
 
             // Empêche la balle de rester coincée dans la raquette
             if (player.team == 1) {

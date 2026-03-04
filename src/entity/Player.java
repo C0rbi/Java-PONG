@@ -28,12 +28,14 @@ public class Player extends Entity{
             case 1:  // Joueur gauche
                 x = 50;
                 y = (gp.getScreenHeight() / 2) - (playerHeight / 2);  // Centré
-                speed = 5;
+                speed = 10;
+                velocityY = 0;
                 break;
             case 2:  // Joueur droit
                 x = gp.getScreenWidth() - 50 - playerWidth;
                 y = (gp.getScreenHeight() / 2) - (playerHeight / 2);  // Centré
-                speed = 5;
+                speed = 10;
+                velocityY = 0;
                 break;
         }
     }
@@ -43,16 +45,28 @@ public class Player extends Entity{
         if (team == 1) {
             if (keyH.upPressed && y >= 0) {
                 y -= speed;
+                velocityY = -speed;
+            } else {
+                velocityY = 0;
             }
             if (keyH.downPressed && y + playerHeight < gp.getScreenHeight()) {
                 y += speed;
+                velocityY = speed;
+            } else {
+                velocityY = 0;
             }
         } else {
             if (keyH.upPressed2 && y >= 0) {
                 y -= speed;
+                velocityY = -speed;
+            } else {
+                velocityY = 0;
             }
             if (keyH.downPressed2 && y + playerHeight < gp.getScreenHeight()) {
                 y += speed;
+                velocityY = speed;
+            } else {
+                velocityY = 0;
             }
         }
     }
